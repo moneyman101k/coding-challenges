@@ -1,0 +1,14 @@
+
+
+Problem:
+
+There is a monkey which can walk around on a planar grid. The monkey can move one space at a time left, right, up or down. That is, from (x, y) the monkey can go to (x+1, y), (x-1, y), (x, y+1), and (x, y-1). Points where the sum of the digits of the absolute value of the x coordinate plus the sum of the digits of the absolute value of the y coordinate are lesser than or equal to 19 are accessible to the monkey. For example, the point (59, 79) is inaccessible because 5 + 9 + 7 + 9 = 30, which is greater than 19. Another example: the point (-5, -7) is accessible because abs(-5) + abs(-7) = 5 + 7 = 12, which is less than 19. How many points can the monkey access if it starts at (0, 0), including (0, 0) itself?
+
+Solution:
+
+Utilizes recursion in order to perform a depth-first search (DFS) on the coordinate system extending out from (0, 0) based on possible translations of (x+1, y), (x-1, y), (x, y+1), and (x, y-1). The basic idea is to perform a check on the current coordinate - to see if its sum of digits is greater than 19 or not. This sum is calculated using the modulo operator to add each of the digits to the sum. For a coordinate with negative value(s), the value(s) is converted to its absolute value before the sum calculation - while maintaining the actual coordinate value.
+Following the sum calculation, it is put through the sum checkers - if the sum is less than or equal to 19, then it is either an already explored coordinate or not. If the corresponding coordinate has already been explored, then it will already be in a set data structure of coordinate pairs - causing a return on that recursive call. If the corresponding coordinate hasn't already been explored, then it will be inserted into the set, and a recursive function call will be made to explore the 4 adjacent coordinates around it.
+If the sum is greater than 19, then the coordinate is not a valid coordinate for the monkey to translate to. As such, a return will be made on that recursive call - and the coordinates adjacent to it should not be explored.
+Once the function completes, the set data structure will be completed - with each coordinate pair representing a possible coordinate for the monkey to move to. Outside of the function, the size of the set data structure can be returned - which represents the number of coordinates the monkey can move to.
+
+Psuedocode:
