@@ -10,5 +10,3 @@ Utilizes recursion in order to perform a depth-first search (DFS) on the coordin
 Following the sum calculation, it is put through the sum checkers - if the sum is less than or equal to 19, then it is either an already explored coordinate or not. If the corresponding coordinate has already been explored, then it will already be in a set data structure of coordinate pairs - causing a return on that recursive call. If the corresponding coordinate hasn't already been explored, then it will be inserted into the set, and a recursive function call will be made to explore the 4 adjacent coordinates around it.
 If the sum is greater than 19, then the coordinate is not a valid coordinate for the monkey to translate to. As such, a return will be made on that recursive call - and the coordinates adjacent to it should not be explored.
 Once the function completes, the set data structure will be completed - with each coordinate pair representing a possible coordinate for the monkey to move to. Outside of the function, the size of the set data structure can be returned - which represents the number of coordinates the monkey can move to.
-
-Psuedocode:
