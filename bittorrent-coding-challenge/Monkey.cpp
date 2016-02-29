@@ -15,7 +15,7 @@ int absoluteDigitSumCoordinate(int x, int y);
 int main()
 {
 	
-	// Function Returns Number of Valid Monkey Coordinates
+	// Function Returns Number of Accessible Monkey Coordinates
 	int count = monkeyCoordinate(0, 0);
 
 	// STDOUT Output for the Answer
@@ -29,23 +29,20 @@ int main()
 // Makes Recursive Call on 4 Adjacent Coordinates if a New, Valid Coordinate
 int monkeyCoordinate(int x, int y){
 
-	// Check the Sum to See if it Represents a Valid Coordinate
-	if(absoluteDigitSumCoordinate(x, y) <= 19){
+	// Check the Sum to See if it Represents an Accessible Coordinate
+	// and is not Already in the Set of Accessible Coordinates
+	if((absoluteDigitSumCoordinate(x, y)) <= 19 && (coords.find(make_pair(x, y)) == coords.end())){
 
-		// Check to See if the Valid Coordinate is Already in the Set, By Checking on the Coordinate Pair
-		if(coords.find(make_pair(x, y)) != coords.end()){
-			return 0;
-		}
-		
-		// If the Valid Coordinate is not Already in the Set, Add it to the Set
+		// If the Accessible Coordinate is not Already in the Set, Add it to the Set
 		coords.insert(make_pair(x, y));
 
-		// Add 1 to the Number of Valid Coordinates, and Make Recursive Calls on the 4 Adjacent Points
+		// Add 1 to the Number of Accessible Coordinates, and Make Recursive Calls on the 4 Adjacent Points
 		return 1 + monkeyCoordinate(x-1, y) + monkeyCoordinate(x+1, y)
 				 + monkeyCoordinate(x, y-1) + monkeyCoordinate(x, y+1);
+
 	}
 
-	// If the Coordinate is Invalid, Don't Do Anything with it
+	// If the Coordinate is Inaccessible or is Already in the Set, Don't Do Anything with it
 	return 0;
 
 }
@@ -63,7 +60,7 @@ int absoluteDigitSumCoordinate(int x, int y){
 
 	// Add up the Digits of the X-Coordinate to Sum (Digit by Digit)
 	while(check_x != 0){
-		// Add Current Digit - Using Modulo By 10
+		// Add Current Digit - Using Mod By 10
 		sum += (check_x % 10);
 		// Move to the Next Digit
 		check_x /= 10;
@@ -71,7 +68,7 @@ int absoluteDigitSumCoordinate(int x, int y){
 
 	// Add up the Digits of the Y-Coordinate to Sum (Digit by Digit)
 	while(check_y != 0){
-		// Add Current Digit - Using Modulo By 10
+		// Add Current Digit - Using Mod By 10
 		sum += (check_y % 10);
 		// Move to the Next Digit
 		check_y /= 10;
