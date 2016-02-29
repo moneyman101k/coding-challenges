@@ -1,6 +1,6 @@
 Program:
 
-One C++ file called "Monkey.cpp"
+One C++ file called "Monkey.cpp". There should only be one print statement as output - which gives the solution.
 
 
 Running the Program:
