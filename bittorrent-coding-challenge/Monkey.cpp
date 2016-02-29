@@ -30,22 +30,19 @@ int main()
 int monkeyCoordinate(int x, int y){
 
 	// Check the Sum to See if it Represents an Accessible Coordinate
-	if(absoluteDigitSumCoordinate(x, y) <= 19){
+	// and is not Already in the Set of Accessible Coordinates
+	if((absoluteDigitSumCoordinate(x, y)) <= 19 && (coords.find(make_pair(x, y)) == coords.end())){
 
-		// Check to See if the Accessible Coordinate is Already in the Set, By Checking on the Coordinate Pair
-		if(coords.find(make_pair(x, y)) != coords.end()){
-			return 0;
-		}
-		
 		// If the Accessible Coordinate is not Already in the Set, Add it to the Set
 		coords.insert(make_pair(x, y));
 
 		// Add 1 to the Number of Accessible Coordinates, and Make Recursive Calls on the 4 Adjacent Points
 		return 1 + monkeyCoordinate(x-1, y) + monkeyCoordinate(x+1, y)
 				 + monkeyCoordinate(x, y-1) + monkeyCoordinate(x, y+1);
+
 	}
 
-	// If the Coordinate is Inaccessible, Don't Do Anything with it
+	// If the Coordinate is Inaccessible or is Already in the Set, Don't Do Anything with it
 	return 0;
 
 }
