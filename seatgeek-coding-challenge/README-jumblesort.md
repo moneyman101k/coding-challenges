@@ -13,6 +13,5 @@ $ g++ jumblesort.cc -o jumblesort
 Execution Example:
 ------------------
 
-$ ./jumblesort 1 alpha 2 beta
-
+$ ./jumblesort 1 alpha 2 beta\n
 1 alpha 2 beta
