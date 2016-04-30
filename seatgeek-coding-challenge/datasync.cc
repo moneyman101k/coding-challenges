@@ -50,7 +50,7 @@ int main(int argc, char *argv[]){
           destination_data_center->insert(*data_set);
           cout << *data_set;
           cout << " " << distance(all_data_centers.begin(), 
-                           origin_data_center+1);
+                                  origin_data_center+1);
           cout << " " << distance(all_data_centers.begin(), 
                                   destination_data_center+1);
           cout << endl;
