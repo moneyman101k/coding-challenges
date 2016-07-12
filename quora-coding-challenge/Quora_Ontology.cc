@@ -123,7 +123,7 @@ int main() {
   int m;
   char num_questions[1000];
   cin.getline(num_questions, 1000);
-  m = atoi(num_questions);\
+  m = atoi(num_questions);
 
   string topic_plus_question;
   for(int i = 0; i < m; ++i){
