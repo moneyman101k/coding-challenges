@@ -1,0 +1,519 @@
+
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+
+    <script language="JavaScript" type="text/javascript">
+        // set this variable to "authenticated" - will reset it to "not-authenticated" on pages reached without login credentials
+      var isAuthenticated = "authenticated"
+      var locale = "us-en"
+     </script>
+
+  <!--[if lt IE 9]><body class="ie8">
+<script type="text/javascript" src="../lib/pieBtn.js"></script><![endif]-->
+
+  <script language='JavaScript' type='text/javascript' src='/lib/scode_usrib.js'> </script>
+
+   <script>
+        var st = '1';
+    </script>
+<!-- misc javascripts often used -->
+
+  <script language="javascript">
+    function Exit()
+        {
+        if(confirm("Are you sure you want to exit Online Banking?"))
+            {
+            toLocale="https://onlinebanking.plaidbank.com/system/";onTimeOut();
+            }
+        }
+
+    function Exit2()
+        {
+        if(confirm("Are you sure you want to exit Online Banking?"))
+            {
+            toLocale="https://onlinebanking.plaidbank.com/system/";
+             window.top.location = toLocale + 'endsession.asp';
+            }
+        }
+
+    function ExitToMain()
+        {
+        if(confirm("Are you sure you want to exit Online Banking?"))
+            {
+            toLocale="https://onlinebanking.plaidbank.com/system/";endToMain();
+            }
+        }
+
+    function ExitToEspanol()
+        {
+        if(confirm("Are you sure you want to exit Online Banking?"))
+            {
+            toLocale="https://onlinebanking.plaidbank.com/system/";endToEspanol();
+            }
+        }
+
+    function SortPage(x, ord) {with (document.SortPage) {SortKey.value = x;Order.value = ord;submit();}}
+    //  HELP
+    function GetHelp(x, t, u) {
+        lnk = "/popup/" + u + "?id=" + x + "&toPrint=True&title=" + escape(t);
+      if(window.myhelp) {
+        if(!window.myhelp.closed) {window.myhelp.focus();window.myhelp.location.href = lnk;return;}
+      }
+      myhelp = window.open(lnk,"myhelpwin","resizable=yes,scrollbars=yes,width=300,height=300");window.myhelp.focus();
+      if (myhelp.opener == null) myhelp.opener = self;
+    }
+
+    function GetHelpAvailableBalance(x, t, u) {
+        lnk = "/popup/" + u + "?id=" + x + "&toPrint=True&title=" + escape(t);
+      if(window.myhelp) {
+        if(!window.myhelp.closed) {window.myhelp.focus();window.myhelp.location.href = lnk;return;}
+      }
+      myhelp = window.open(lnk,"myhelpwin","resizable=yes,scrollbars=yes,width=360,height=300");window.myhelp.focus();
+      if (myhelp.opener == null) myhelp.opener = self;
+    }
+
+  </script>
+
+</head>
+
+<body onResize="if(document.layers){document.location.reload();}">
+  <a name="top" id="top"></a>
+
+  <div class="td-skip">
+  <a href="#leftnav">Skip to left navigation</a>
+  <a href="#main">Skip to main content</a>
+  </div>
+
+  <div id="td-wrapper">
+
+
+    <div id="td-container">
+
+  <!--****************************************
+    Header
+  ****************************************-->
+
+      <div class="td-layout-row" id="td-layout-header" role="banner">
+
+        <div class="td-layout-column td-layout-grid7">
+          <div id="td-logo"><a href="javascript: Exit();"><img src="/images/logos/plaidbank.gif" border="0" alt="Plaid Bank"></a></div>
+        </div>
+
+
+        <div class="td-layout-column td-layout-column-last td-layout-grid8">
+
+          <div id="td-header-links">
+            <ul class="td-header-tabs">
+
+              <li><a href="javascript:Exit();" class="td-button td-button-secondary td-button-compact" onMouseOver="window.status = 'End Your Session'; return true;" onMouseOut="window.status = ''; return true;"><span class="td-button-label">Log Off</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div><!-- End #td-layout-header -->
+
+  <!--****************************************
+    Main Navigation
+  ****************************************-->
+
+    <div class="td-layout-row" id="td-layout-nav-main" role="navigation">
+
+          <ul id="td-nav-level2">
+            <li class="td-nav-level2-active"><span class="td-nav-level2-indicator">You are in this section:</span><a class="activelink" href="javascript:goNav2(1);">Accounts</a></li>
+            <li><span class="td-nav-level2-label"><a href="javascript:goNav2(2);" onMouseOver="window.status = 'TRANSFERS'; return true;" onMouseOut="window.status = ''; return true;">Transfers</a></span></li>
+            <li><span class="td-nav-level2-label"><a href="javascript:goNav2(3);" onMouseOver="window.status = 'BILL&nbsp;PAY'; return true;" onMouseOut="window.status = ''; return true;">Bill Pay</a></span></li>
+            <li><span class="td-nav-level2-label"><a href="javascript:goNav2(7);" onMouseOver="window.status = 'PERSON-TO-PERSON PAYMENTS'; return true;" onMouseOut="window.status = ''; return true;">Person-to-Person Payments</a></span></li>
+            <li><span class="td-nav-level2-label"><a href="javascript:goNav2(4);" onMouseOver="window.status = 'ALERTS'; return true;" onMouseOut="window.status = ''; return true;">Alerts</a></span></li>
+            <li><span class="td-nav-level2-label"><a href="javascript:goNav2(5);" onMouseOver="window.status = 'PRODUCTS'; return true;" onMouseOut="window.status = ''; return true;">Products</a></span></li>
+            <li><span class="td-nav-level2-label"><a href="javascript:goNav2(6);" onMouseOver="window.status = 'SERVICE&nbsp;CENTER'; return true;" onMouseOut="window.status = ''; return true;">Customer Service</a></span></li>
+          </ul>
+    </div><!-- End #td-layout-nav-main -->
+
+      <form name="frmNav" action="" method="post">
+      <input type="hidden" name="nav" value="8/24/2015 11:15:51 PM">
+      </form>
+      <input type="hidden" name="OASSiteDirnPage" value=accts/getaccts.asp  ID="OASSiteDirnPage"><input type="hidden" name="OASSite" value=onlinebanking.plaidbank.com/en/  ID="OASSite"><input type="hidden" name="OASURL" value=https://ads.plaidbank.com/  ID="OASURL">
+  <SCRIPT LANGUAGE=JavaScript>
+  <!--
+  //configuration
+  OAS_url = document.getElementById('OASURL').value;
+  //OAS_sitepage = 'onlinebanking.plaidbank.com/en/accts/getcct.asp';
+  OAS_sitepage = document.getElementById('OASSite').value + document.getElementById('OASSiteDirnPage').value;
+
+
+  OAS_listpos = 'TopLeft,BottomLeft,Bottom,x01,x02';
+  OAS_query = '';
+  OAS_target = '_top';
+  //end of configuration
+  OAS_version = 10;
+  OAS_rn = '001234567890'; OAS_rns = '1234567890';
+  OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11);
+  function OAS_NORMAL(pos) {
+    document.write('<A HREF="' + OAS_url + 'click_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + '?' + OAS_query + '" TARGET=' + OAS_target + '>');
+    document.write('<IMG SRC="' + OAS_url + 'adstream_nx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + '?' + OAS_query + '" BORDER=0></A>');
+  }
+
+  //-->
+  </SCRIPT>
+
+
+  <SCRIPT LANGUAGE=JavaScript1.1>
+
+  <!--
+  OAS_version = 11;
+  if (navigator.userAgent.indexOf('Mozilla/3') != -1 || navigator.userAgent.indexOf('Mozilla/4.0 WebTV') != -1)
+    OAS_version = 10;
+  if (OAS_version >= 11)
+    document.write('<SCR' + 'IPT LANGUAGE=JavaScript1.1 SRC="' + OAS_url + 'adstream_mjx.ads/' + OAS_sitepage + '/1' + OAS_rns + '@' + OAS_listpos + '?' + OAS_query + '"><\/SCRIPT>');//-->
+  </SCRIPT>
+
+  <SCRIPT LANGUAGE=JavaScript>
+  <!--
+  document.write('');
+  function OAS_AD(pos) {
+    if (OAS_version >= 11)
+      OAS_RICH(pos);
+    else
+      OAS_NORMAL(pos);
+  }
+  //-->
+  </SCRIPT>
+
+
+
+
+  <!--****************************************
+    Content Area
+  ****************************************-->
+
+    <h1 class="hide">Account Summary</h1>
+
+
+
+  <div class="td-layout-row" id="td-layout-contentarea">
+
+  <div class="td-layout-column td-layout-grid3 td-noprint">
+    <div class="td-callout td-callout-primary">
+      <div class="td-callout-heading">
+        <h2>Message Center</h2>
+      </div>
+      <div class="td-callout-content td-callout-msg">
+        <ul class="td-bullet-none">
+
+          <li>
+            <a href="javascript:goNav('../csc/svcs_read_msgs.asp?UnreadOnly=1');" style="background:transparent url(../images/icons/message-icons.gif) no-repeat 0 5px;margin-bottom:10px;">You have <strong>
+                0
+              </strong>new&nbsp;<br/>messages</a></li>
+
+          <li>
+            <a href="javascript:goNav('../csc/svcs_send_a_msg.asp?pageNav=send');" class="td-callout-send-msg">
+              Send a secure message</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <!-- helpful hints-->
+
+  <div class="td-callout td-callout-primary">
+    <div class="td-callout-heading">
+      <h2>Help &amp; Related Tasks</h2>
+    </div>
+    <div class="td-callout-content">
+      <ul class="td-bullet-link">
+
+                      <li><a href="javascript:GetHelpAvailableBalance('1','','help_getAccts.asp')" onMouseOver="window.status='Understanding your Available Balance?'; return true;" onMouseOut="window.status=''; return true;">Understanding your Available Balance</a></li>
+              <li><a href="javascript:GetHelp('2','','help_getAccts.asp')" onMouseOver="window.status='Understanding Pending Transactions'; return true;" onMouseOut="window.status=''; return true;">Understanding Pending Transactions</a></li>
+              <li><a href="/accts/acct_friendly_name.asp">Manage Nicknames</a></li>
+
+                <li><a href="/PopMoney/PopMoney.asp">Person-to-Person Payments  easily send and receive money</a></li>
+
+              <li><a href="/csc/svcs_paperless.asp" onClick="trackCustomLink('tdb:p:help-related:onlinestatementsetting','Link','onClick');">Online Statements Settings</a></li>
+              <li><a href="/csc/svcs_notices.asp" onClick="trackCustomLink('tdb:p:help-related:onlinenoticessetting','Link','onClick');">Online Notices Settings</a></li>
+              <li><a href="http://www.plaidbank.com/popup/samplecheck.html" target="_blank" onMouseOver="window.status = 'ABA Routing Number'; return true;" onMouseOut="window.status = ''; return true;" class="svcs">ABA Routing Number</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+
+    <!--helpful hints-->
+    <div class="td-callout td-callout-primary">
+      <div class="td-callout-heading">
+        <h2>Services &amp; New Products</h2>
+      </div>
+      <div class="td-callout-content td-callout-services">
+        <div class="td-callout-contentinner">
+
+          <SCRIPT LANGUAGE=JavaScript>
+                  <!--
+                  OAS_AD('TopLeft');
+                  //-->
+                  </SCRIPT>
+
+        </div>
+        <div class="td-callout-contentinner">
+
+          <SCRIPT LANGUAGE=JavaScript>
+                  <!--
+                  OAS_AD('BottomLeft');
+                  //-->
+                  </SCRIPT>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="td-callout td-callout-primary">
+
+      <SCRIPT LANGUAGE=JavaScript>
+                  <!--
+                  OAS_AD('Bottom');
+                  //-->
+                  </SCRIPT>
+
+    </div>
+
+    </div>
+
+      <script language="Javascript">
+      function GoToMarketing(page) {if(confirm("Are you sure you want to open this additional window? As a security precaution, you will be automatically signed out of Online Banking after 10 minutes of inactivity, so dont forget to sign back in.")) {window.open(page);}}
+
+      </script>
+
+         <div class="td-layout-column td-layout-grid12" role="main">
+        <a name="main" id="main" tabindex="-1"></a>
+        <div id="td-pagetitlearea">
+
+
+        <table cellspacing="0" border="0" cellpadding="0" width="100%">
+          <tr><td class="welcome">Welcome, GEORGE</td></tr>
+          <tr><td class="td-button-supercompact">Today is 8/24/2015 | Your last login was on 8/24/2015 9:02 PM</td></tr>
+        </table>
+      <!-- End Accounts Header -->
+        </div>
+
+
+
+  <!--****************************************
+    Content Area
+  ****************************************-->
+      <!--<div id="td-main-content">-->
+
+
+
+        <script language="JavaScript">
+        //<!--
+        function acctHistory(acctId){
+          document.acctHistory.acctId.value=acctId;
+          document.acctHistory.submit();
+        }
+
+        function acctDetail(acctId){
+          document.acctDetail.acctId.value=acctId;
+          document.acctDetail.submit();
+        }
+
+        function acctPendingTrans(acctId){
+          document.acctPendingTrans.acctId.value=acctId;
+          document.acctPendingTrans.submit();
+        }
+
+        function scheduleTransfer(acctId){
+           document.scheduleTransfer.acctId.value=acctId;
+           document.scheduleTransfer.submit();
+        }
+        //-->
+        </script>
+
+        <!-- Begin Workspace -->
+        <form name="details" action="" method="post">
+
+  	<!--<table cellpadding="3" bgcolor="#FFFF99" width="100%"><tr>
+    <td><b><font color="#006600">Please Note:</font></b>&nbsp;Thanks for your patience, it is truly unusual for us to not have your balances updated, and we apologize for any inconvenience this has caused you.<br /><br />As we finish updating our systems your balances may not reflect recent transactions until 4pm today.  In the meantime, our branches are ready to serve you.  Visit us!</td>
+  </tr></table><br />-->
+                          <!-- Deposit, Savings and CD/IRA Accounts -->
+
+                              <SCRIPT LANGUAGE=JavaScript>
+                              <!--
+                              OAS_AD('x01');
+                              //-->
+                              </SCRIPT>
+
+
+
+
+                          <h2>Deposit Accounts</h2>
+                          <table width="100%" class="td-table td-table-stripe-row td-table-hover-row td-table-border-column" style="border-bottom:0px;">
+                          <tr>
+                              <th class="td-table-heading-top" >Account Name</th>
+                              <th class="td-table-heading-top" >Account Number</th>
+                              <th class="td-table-heading-top" style="text-align: right" >8/24/2015 Balance</th>
+                              <th class="td-table-heading-top" style="text-align: right" >Pending Transactions</th>
+                              <th class="td-table-heading-top" style="text-align: right" >Available Balance</th>
+  						 </tr>
+
+                          <tr>
+                              <td><a href="javascript:acctHistory('1');">CHECKING 7890</a></td>
+                              <td>1234567890</td>
+  							<td align = right>
+                              $1099.05
+                              </td>
+                              <td align = right>&nbsp;
+
+  							</td>
+                              <td align = right>$999.05</td>
+                          </tr>
+
+                          <tr>
+                              <td><a href="javascript:acctHistory('2');">SAVINGS 4444</a></td>
+                              <td>1111222233334444</td>
+  							<td align = right>
+                              $999.05
+                              </td>
+                              <td align = right>&nbsp;
+
+  							</td>
+                              <td align = right>$999.05</td>
+                          </tr>
+
+  						<tr>
+  							<td class="td-table-heading-bottom td-table-total-cell td-table-heading-right" colspan="4" align="right">Total Available Balance of Deposit Accounts</td>
+  							<td class="td-table-heading-bottom td-table-total-cell" align="right">$1,998.10 </td>
+  						</tr>
+
+                      </table>
+
+              </form>
+
+          <form action="/accts/acct_history.asp" method="post" name="acctHistory">
+            <input type="hidden" name="refresh" value="8/24/2015 11:15:51 PM">
+            <input type="hidden" name="acctId" value="">
+          </form>
+
+          <form action="/accts/acct_details.asp" method="post" name="acctDetail">
+            <input type="hidden" name="refresh" value="8/24/2015 11:15:51 PM" ID="Hidden1">
+            <input type="hidden" name="acctId" value="" ID="Hidden2">
+          </form>
+
+          <form action="/accts/acct_pending_trans.asp" method="post" name="acctPendingTrans">
+            <input type="hidden" name="refresh" value="8/24/2015 11:15:51 PM">
+            <input type="hidden" name="acctId" value="">
+          </form>
+
+           <form action="/transfer/xfr.asp" method="post" name="scheduleTransfer">
+            <input type="hidden" name="refresh" value="8/24/2015 11:15:51 PM">
+            <input type="hidden" name="acctId" value="">
+          </form>
+
+          <script language='JavaScript' type='text/javascript' src='/lib/scode_usrib.js'> </script>
+  <script language="javascript" type="text/javascript">
+   var state = new Boolean(1);
+
+     if (state == true) {
+      try {
+        s.events=s.apl(s.events,'event4',',',1);
+        //s.tl;
+        }
+      catch(err) {
+      }
+    }
+  </script>
+      <!--</div> --> <!-- End #td-main-content" -->
+
+      <!-- End Workspace -->
+
+
+  <!-- footer -->
+
+     </div><!--end td-layout-column td-layout-grid12-->
+     </div><!--end td-layout-contentarea-->
+     </div> <!--end td-container-->
+    <div id="td-layout-footer" role="complementary"   class="td-layout-row" >
+
+    <div  class="td-layout-column td-layout-grid15"  >
+
+      <ul id="td-footer-links-left">
+        <li>
+          <strong>1-888-751-9000</strong>
+        </li>
+        <li><span>&#169; 2015 Plaid Bank, Inc.  All Rights Reserved</span></li><li><a href="javascript:GoToMarketing('http://www.plaidbank.com/exc/html/terms_of_use.html');" onMouseOver="window.status = 'Terms of Use'; return true;" onMouseOut="window.status = ''; return true;">Terms of Use</a></li>
+              <li><a href="javascript:GoToMarketing('http://www.plaidbank.com/bank/privacy_and_security.html');" onMouseOver="window.status = 'Privacy'; return true;" onMouseOut="window.status = ''; return true;">Privacy</a></li>
+              <li><a href="javascript:GoToMarketing('http://www.plaidbank.com/bank/security.html');" onMouseOver="window.status = 'Security'; return true;" onMouseOut="window.status = ''; return true;">Security</a></li>
+        <li><a href="javascript:GoToMarketing('https://customerservice.plaidbank.com/app/home');" onMouseOver="window.status = 'Contact Us'; return true;" onMouseOut="window.status = ''; return true;">Contact Us</a></li>
+
+  </ul>
+    </div>
+  </div>
+  </div><!--end td-wrapper-->
+
+
+  <script language="JavaScript" type="text/javascript">
+
+  var state = new Boolean(1)
+  </script>
+
+  <!-- BEGIN Omniture SUPPORT -->
+  <!-- SiteCatalyst code version: H.22.Copyright 1996-2010 Adobe, Inc. All Rights Reserved -->
+  <!--  <script language="JavaScript" type="text/javascript" src="/lib/scode_usrib.js"></script> -->
+  <script language="JavaScript" type="text/javascript"><!--
+    /* You may give each page an identifying name, server, and channel on
+    the next lines. */
+
+    //alert(state)
+    if(state == true)
+    {
+      try
+      {
+        s.pageName=""
+        s.server=""
+        s.channel = locale
+        s.prop1=""
+        s.prop2=""
+        s.prop3=""
+        /* Conversion Variables */
+        s.eVar1=""
+        s.eVar2=""
+        s.eVar3=""
+
+        // Authenticated
+  //      alert(isAuthenticated)
+        s.prop12 = s.eVar32 = isAuthenticated
+
+        // RMID
+        s.prop1 = s.eVar2 = '00000043124574'
+
+        if ((typeof omniture_eVar41 != 'undefined') && (omniture_eVar41 != "")) {
+          s.eVar41=omniture_eVar41;
+        }
+
+        if ((typeof omniture_pageType != 'undefined') && (omniture_pageType != "")) {
+          s.pageType=omniture_pageType;
+        }
+
+
+
+  //      alert(s.prop1)
+
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code=s.t();if(s_code)document.write(s_code)
+        if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+      }
+      catch(err)
+      {
+      }
+    }
+
+  //--></script>
+  <noscript>
+    <img src="http://metrics.plaid.com/b/ss/tdunitedstatesdev/1/H.22--NS/0" height="1" width="1"
+      border="0" alt="" /></noscript>
+  <!--/DO NOT REMOVE/-->
+  <!-- End SiteCatalyst code version: H.22. -->
+  <!-- END Omniture -->
+  <script language='JavaScript' type ='text/javascript' src='https://dcx.plaidbank.com/stream/get.ashx?r=00000043124574'  />
+</body>
+</html>
