@@ -1,6 +1,6 @@
 # Coding Challenges
 
-Bittorent - Monkey Coordinate Challenge
+BitTorrent - Monkey Coordinate Challenge
 
 SeatGeek - Backend Challenge (JumbleSort/DataSync)
 
